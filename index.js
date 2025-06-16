@@ -14,12 +14,12 @@ const supabase = createClient(
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("🍎 Apple Product API is running!");
-});
+// app.get("/", (req, res) => {
+//   res.send("🍎 Apple Product API is running!");
+// });
 
 // GET all products
-app.get("/products", async (req, res) => {
+app.get("/", async (req, res) => {
   const { data, error } = await supabase.from("products").select("*");
   if (error) return res.status(500).json({ error: error.message });
   res.json(data);
